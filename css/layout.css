@@ -1,0 +1,53 @@
+.font-myfont {
+  font-family: 'Bodoni Moda', Verdana, Arial, Tahoma, serif;
+}
+
+.bg-image-arabia {
+    background: url(../images/arabiasumu.jpg) no-repeat center center fixed !important;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .bg-image-puu {
+    background: url(../images/joulunpuu.jpg) no-repeat center center fixed !important;
+    background-size: auto 100%;
+ 
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+  .bg-image-puskassa {
+    background: url(../images/puskassa.jpg) no-repeat center center fixed !important;
+    background-size: auto 100%;
+ 
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-color: black;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+
+ .a-white{
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+   
+}
+
+.a-white:hover{
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.details-li {
+  list-style: none;
+}
+
+
+
+
+
+  
+ 
