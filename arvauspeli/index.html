@@ -41,7 +41,7 @@
     data-dapp-detection="">!function () { let e = !1; function n() { if (!e) { const n = document.createElement("meta"); n.name = "dapp-detected", document.head.appendChild(n), e = !0 } } if (window.hasOwnProperty("ethereum")) { if (window.__disableDappDetectionInsertion = !0, void 0 === window.ethereum) return; n() } else { var t = window.ethereum; Object.defineProperty(window, "ethereum", { configurable: !0, enumerable: !1, set: function (e) { window.__disableDappDetectionInsertion || n(), t = e }, get: function () { if (!window.__disableDappDetectionInsertion) { const e = arguments.callee; e && e.caller && e.caller.toString && -1 !== e.caller.toString().indexOf("getOwnPropertyNames") || n() } return t } }) } }();</script>
 </head>
 
-<body class="text-center bg-image-puu font-myfont" cz-shortcut-listen="true">
+<body class="text-center bg-dark font-myfont" cz-shortcut-listen="true">
 
 
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
@@ -50,38 +50,41 @@
         <h3 class="masthead-brand text-white">Ohjelmointiprojektit</h3>
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" href="../index.html">Alkuun</a>
-          <a class="nav-link" href="/minusta/">Minusta</a>
-          <a class="nav-link active" href="/projektit/">Projektit</a>
+          <a class="nav-link active" href="#">Minusta</a>
+          <a class="nav-link" href="/projektit/">Projektit</a>
           
-         
+        
         </nav>
       </div>
     </header>
 
     <main role="main" class="inner cover">
-      <section class="project-bg">
-      <h1 class="cover-heading text-white mt-5">Angular</h1>
-      <ul class="lead text-white mt-3">
-          <li>
-              <a href="https://anuvirtane.github.io/tuoteluettelo/" class="a-white">Tuoteluettelo webappina</a>, Githubissa <a href="https://github.com/anuvirtane/tuoteluettelo" class="a-white">tiedostot</a>
-          </li>
-          <li>
-              <a href="https://anuvirtane.github.io/names/" class="a-white">Nimilista webappina</a>, Githubissa <a href="https://github.com/anuvirtane/names" class="a-white">tiedostot</a>
-          </li>
-          <li>
-              <a href="https://anuvirtane.github.io/etabingo/" class="a-white">Etäopetusbingo webappina</a>, Githubissa <a href="https://github.com/anuvirtane/etabingo" class="a-white">tiedostot</a>
-          </li>
+      <h1 class="cover-heading text-white mt-5">TOSI KIVA arvauspeli tietokonetta vastaan</h1>
+      <section class="bg-light rounded">
+        <h2 class="mt-5 pt-3">Säännöt</h2>
+        <p>Arvaa numero 0  tai 1. Tietokone arvaa myös. Jos sinun ja tietokoneen numerot ovat eri, voitat. Jos ne ovat samat, tietokone voittaa. Mutta ethän sinä nyt ylisuurelle laskukoneelle häviäisi..</p>
+        <h3>Valitse tässä</h3>
+            <button class="btn btn-success" id="zero-btn"> 0 </button> 
+          <button class="btn btn-success" id="one-btn"> 1 </button>
         
-      </ul>
-      <h1 class="cover-heading text-white mt-5">Javascript</h1>
-      <ul class="lead text-white mt-3">
-          <li>
-              <a href="/arvauspeli/" class="a-white">Arvauspeli</a>
-          </li>
-          </ul>
-     
-      
-        </section>
+        <p>Tietokone valitsi viimeksi:</p>
+        <p id="tietokoneen-val">_</p>
+        <p>Sinä valitsit viimeksi:</p>
+        <p id="sun-val">_</p>
+        <p>Tietokoneen voitot:</p>
+        <p id="tietokoneen-voitot">_</p>
+        <p>Sinun voittosi:</p>
+        <p id="sun-voitot">_</p>
+
+        <h3 class="pb-3 mb-3">Kumpi saa ensin 20 voittoa?</h3>
+        
+      </section>
+
+    
+    
+
+   
+   
    
    
     </main>
@@ -95,6 +98,8 @@
   </div>
 
 
+  //ihana arvauspeli!
+  <script src="arvaa.js"></script>
   <!-- Bootstrap core JavaScript
       ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

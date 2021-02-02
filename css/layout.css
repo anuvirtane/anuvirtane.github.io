@@ -36,6 +36,14 @@
    
 }
 
+.project-bg {
+  background-color: rgb(51, 51, 51);
+  opacity: 0.8;
+  border-radius:10px;
+  
+  
+}
+
 .a-white:hover{
   color: whitesmoke;
   text-decoration: none;
