@@ -23,6 +23,7 @@ userWon = 0;
 
 //nollanappi
 function addZeroClick() {
+    
  guessList.push(0);
  generateGuess();
 }
@@ -41,7 +42,7 @@ function generateGuess() {
     }
     //vertaillaan käyttäjän arvauksia ja tietokone arvaa niiden perusteella
     else if (guessList[guessList.length-1] === guessList[guessList.length-2]) {
-        guessFromComputer = guessList[guessList.length-1];
+        guessFromComputer = guessList[guessList.length-2];
     } else {
         guessFromComputer = computerGuessesBetter();
     }
@@ -58,21 +59,20 @@ function generateGuess() {
 
 function computerGuessesBetter(){
     //painaako käyttäjä vuorotellen 1 ja 0?
-    if  ((guessList[guessList.length-1] ===1 && guessList[guessList.length-2] ===0 && guessList[guessList.length-3] ===1) || (guessList[guessList.length-1] ===0 && guessList[guessList.length-2] ===1 && guessList[guessList.length-3] ===0)) {
-         return guessList[guessList.length-2];
+    if  ((guessList[guessList.length-1] ===1 && guessList[guessList.length-2] ===0 ) || (guessList[guessList.length-1] ===0 && guessList[guessList.length-2] ===1)) {
+         return guessList[guessList.length-3];
     }
-     else { return guessList[guessList.length-1];}
-}
+     else {
+        return 0;
+}}
 
 function calculateResult(computerGuessed, userGuessed) {
     if (computerGuessed === userGuessed) {
         computerWon++;
         computerWins.innerText = computerWon;
-    }
-
-    else {
+    } else {
         userWon++;
         userWins.innerText = userWon;
     }
-
-}
+    
+} 
