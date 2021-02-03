@@ -21,77 +21,48 @@ let guessFromComputer;
 computerWon = 0;
 userWon = 0;
 
-//nollanappi
-function addZeroClick() {
-    
- guessList.push(0);
- findPattern();
-}
-
-//ykkösnappi
-function addOneClick()  {
-guessList.push(1);
-findPattern();
-}
 
 function twoSameGuessesInRow(){
     if (guessList[guessList.length-3] === guessList[guessList.length-2]) {
-        console.log("two same guesses");
+       
         return true;
         
     } else {
-        console.log("not two same guesses");
+       
+        return false;
+    }
+}
+
+function previouslyTwoSameGuessesInRow() {
+    if (guessList[guessList.length-5] === guessList[guessList.length-4]) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function twoSameGuessesInRowAndChange() {
+    if ((guessList[guessList.length-3]===guessList[guessList.length-4]) && (guessList[guessList.length-2] !== guessList[guessList.length-3])) {
+      
+        return true;
+    } else {
         return false;
     }
 }
 
 function twoSameAndTwoSameGuessesInRow(){
-    if ((twoSameGuessesInRow() && (guessList[guessList.length-5] === guessList[guessList.length-4])) ||(guessList[guessList.length-3]===guessList[guessList.length-4] !== guessList[guessList.length-2]))
- {  
-    console.log("two same and two same guesses");
+    if (twoSameGuessesInRow() && previouslyTwoSameGuessesInRow()) {
+      
+        return true;
+    } else if (twoSameGuessesInRowAndChange()) {
+        
         return true;
     } else {
-        console.log("NOT two same and two same guesses");
+       
         return false;
     }
+    
 }
-
-function findPattern() {
-
-
-    if((guessList.length===1) || (guessList.length===2)) {
-         
-        guessFromComputer = generateGuess();
-        showResults();
-
-       
-    }
-    
-    
-    else if (guessList.length>4){
-        if (twoSameAndTwoSameGuessesInRow()){
-            guessFromComputer = guessList[guessList.length-5];
-                showResults();}
-
-          
-        } else if (twoSameGuessesInRow()){
-            guessFromComputer = guessList[guessList.length-2];
-            showResults();
-        }
-        else {
-          if  (zeroOneZeroOne()) {
-              guessFromComputer = guessList[guessList.length-3];
-              showResults();
-          } else {
-              guessFromComputer = guessList[guessList.length-2];
-              showResults();
-          }
-        } 
-    }
-
-    
-    
-   
 
 
 function generateGuess() {
@@ -103,7 +74,7 @@ function generateGuess() {
 function showResults() {
     //näytetään arvaukset html:ssä
     computerChoice.innerText = guessFromComputer;
-    userChoice.innerText = guessList[guessList.length-1]
+    userChoice.innerText = guessList[guessList.length-1];
  
     calculateResult(guessFromComputer, guessList[guessList.length-1] );
 }
@@ -111,11 +82,11 @@ function showResults() {
 function zeroOneZeroOne(){
     //painaako käyttäjä vuorotellen 1 ja 0?
     if  (guessList[guessList.length-3] + guessList[guessList.length-2] ===1) {
-        console.log("zero one zero one");
+      
          return true;
     }
      else {
-        console.log("NOT zero one zero one");
+      
         return false;
 }}
 
@@ -129,3 +100,46 @@ function calculateResult(computerGuessed, userGuessed) {
     }
     
 } 
+
+function findPatternAfterFiveClicks(){
+    if (twoSameAndTwoSameGuessesInRow()){
+        guessFromComputer = guessList[guessList.length-5];
+            showResults();
+        } else if (twoSameGuessesInRow()){
+        guessFromComputer = guessList[guessList.length-2];
+        showResults();
+    } else {
+        if  (zeroOneZeroOne()) {
+          guessFromComputer = guessList[guessList.length-3];
+          showResults();
+        } else {
+          guessFromComputer = guessList[guessList.length-2];
+          showResults();
+      }
+    } 
+}
+
+
+function findPattern() {
+
+    if (guessList.length>4){
+        findPatternAfterFiveClicks();
+    } else {
+        guessFromComputer = generateGuess();
+        showResults();
+    }
+    
+}
+
+//nollanappi
+function addZeroClick() {
+    
+    guessList.push(0);
+    findPattern();
+   }
+   
+   //ykkösnappi
+   function addOneClick()  {
+   guessList.push(1);
+   findPattern();
+   }
