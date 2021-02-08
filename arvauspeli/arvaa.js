@@ -124,7 +124,19 @@ function findPattern() {
 
     if (guessList.length>4){
         findPatternAfterFiveClicks();
-    } else {
+    } else if (guessList.length>2){
+        if  (zeroOneZeroOne()) {
+            guessFromComputer = guessList[guessList.length-3];
+            showResults();
+          } else {
+            guessFromComputer = guessList[guessList.length-2];
+            showResults();
+        }
+    }
+    
+    
+    
+    else {
         guessFromComputer = generateGuess();
         showResults();
     }
